@@ -1,6 +1,22 @@
 Feature: Search
   As a user I want to able to search for products
   using the search field.
+    Background:
+    Given that I am on the start page
+
+  Scenario Outline: Searching for products including "<string>"
+    When I enter the letter "<string>" in the search field
+    Then I should see the product "<productName>"
+    And I should see the product "<productName>"
+
+    Examples:
+      | string | productName |
+      | s      | Bordslampa  |
+      | s      | Spotlight   |
+      | l      | Taklampa    |
+      | l      | Lampett     |
+      | g      | Spotlight   |
+      | g      | Golvlampa   |
 
   Scenario: Searching for products including "s"
     Given that I am on the start page
